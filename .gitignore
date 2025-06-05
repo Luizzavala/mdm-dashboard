@@ -1,52 +1,42 @@
-# Node dependencies
-node_modules/
-jspm_packages/
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Build outputs
-/dist/
-build/
-out/
-/tmp/
-/temp/
-/out-tsc/
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage reports
-coverage/
-*.lcov
-.nyc_output/
-
-# Compiled TypeScript
-*.tsbuildinfo
-
-# Environment files
-.env
-.env.*
-
-# IDE directories
+# IDEs and editors
 .idea/
-.vscode/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
-# Cache directories
-.npm/
-.yarn/
-.pnp.*
-.cache/
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
-# OS-generated files
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
 .DS_Store
 Thumbs.db
-
