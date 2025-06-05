@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import * as L from 'leaflet';
 
 interface DevicePosition {
@@ -17,7 +18,7 @@ interface Device {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -44,6 +45,7 @@ export class DashboardComponent implements AfterViewInit {
   ];
 
   selectedDevice: Device | null = null;
+  selectedDeviceId = '';
   positionLimit = 5;
 
   private map?: L.Map;
@@ -54,6 +56,18 @@ export class DashboardComponent implements AfterViewInit {
 
   selectDevice(device: Device): void {
     this.selectedDevice = device;
+    this.positionLimit = 5;
+    this.renderPositions();
+  }
+
+  applyDeviceFilter(): void {
+    if (this.selectedDeviceId) {
+      const id = Number(this.selectedDeviceId);
+      const device = this.devices.find(d => d.id === id) ?? null;
+      this.selectedDevice = device;
+    } else {
+      this.selectedDevice = null;
+    }
     this.positionLimit = 5;
     this.renderPositions();
   }
