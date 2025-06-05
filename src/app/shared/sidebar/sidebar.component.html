@@ -8,14 +8,4 @@
     </select>
   </label>
   <button (click)="applyDeviceFilter()">Filtrar</button>
-  <div class="filters" *ngIf="selectedDevice">
-    <label>Show last:
-      <select (change)="setLimit($any($event.target).value)">
-        <option [value]="5" [selected]="positionLimit===5">5</option>
-        <option [value]="15" [selected]="positionLimit===15">15</option>
-        <option [value]="50" [selected]="positionLimit===50">50</option>
-      </select>
-      positions
-    </label>
-  </div>
 </aside>

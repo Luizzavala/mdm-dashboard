@@ -3,9 +3,7 @@
     [devices]="devices"
     [selectedDevice]="selectedDevice"
     [(selectedDeviceId)]="selectedDeviceId"
-    [positionLimit]="positionLimit"
-    (deviceFilter)="applyDeviceFilter()"
-    (limitChange)="setLimit($event)">
+    (deviceFilter)="applyDeviceFilter()">
   </app-sidebar>
   <div id="map" class="map"></div>
 </div>

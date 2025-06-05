@@ -1,11 +1,8 @@
-export interface DevicePosition {
+export interface Device {
+  id: string;
+  name: string;
   lat: number;
   lng: number;
-  timestamp: string;
-}
-
-export interface Device {
-  id: number;
-  name: string;
-  positions: DevicePosition[];
+  /** ISO timestamp of the last known connection */
+  lastSeen: string;
 }
