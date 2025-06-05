@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Device } from '../models/device';
+import { Device } from '../../core/models/device';
 
 @Component({
   selector: 'app-sidebar',
