@@ -2,8 +2,8 @@ import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as L from 'leaflet';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { Device, DevicePosition } from '../models/device';
+import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
+import { Device, DevicePosition } from '../../core/models/device';
 
 @Component({
   selector: 'app-dashboard',
