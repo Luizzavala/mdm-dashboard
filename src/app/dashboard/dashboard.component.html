@@ -1,0 +1,21 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <h2>Devices</h2>
+    <ul>
+      <li *ngFor="let device of devices" (click)="selectDevice(device)" [class.selected]="device === selectedDevice">
+        {{ device.name }}
+      </li>
+    </ul>
+    <div class="filters" *ngIf="selectedDevice">
+      <label>Show last:
+        <select (change)="setLimit($any($event.target).value)">
+          <option [value]="5" [selected]="positionLimit===5">5</option>
+          <option [value]="15" [selected]="positionLimit===15">15</option>
+          <option [value]="50" [selected]="positionLimit===50">50</option>
+        </select>
+        positions
+      </label>
+    </div>
+  </aside>
+  <div id="map" class="map"></div>
+</div>
