@@ -1,24 +1,11 @@
 <div class="dashboard">
-  <aside class="sidebar">
-    <h2>Devices</h2>
-    <label>
-      Dispositivo:
-      <select [(ngModel)]="selectedDeviceId">
-        <option value="">Todos</option>
-        <option *ngFor="let device of devices" [value]="device.id">{{ device.name }}</option>
-      </select>
-    </label>
-    <button (click)="applyDeviceFilter()">Filtrar</button>
-    <div class="filters" *ngIf="selectedDevice">
-      <label>Show last:
-        <select (change)="setLimit($any($event.target).value)">
-          <option [value]="5" [selected]="positionLimit===5">5</option>
-          <option [value]="15" [selected]="positionLimit===15">15</option>
-          <option [value]="50" [selected]="positionLimit===50">50</option>
-        </select>
-        positions
-      </label>
-    </div>
-  </aside>
+  <app-sidebar
+    [devices]="devices"
+    [selectedDevice]="selectedDevice"
+    [(selectedDeviceId)]="selectedDeviceId"
+    [positionLimit]="positionLimit"
+    (deviceFilter)="applyDeviceFilter()"
+    (limitChange)="setLimit($event)">
+  </app-sidebar>
   <div id="map" class="map"></div>
 </div>

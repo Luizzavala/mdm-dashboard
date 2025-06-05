@@ -2,23 +2,13 @@ import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import * as L from 'leaflet';
-
-interface DevicePosition {
-  lat: number;
-  lng: number;
-  timestamp: string;
-}
-
-interface Device {
-  id: number;
-  name: string;
-  positions: DevicePosition[];
-}
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { Device, DevicePosition } from '../models/device';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SidebarComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
