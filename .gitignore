@@ -1,0 +1,52 @@
+# Node dependencies
+node_modules/
+jspm_packages/
+
+# Build outputs
+/dist/
+build/
+out/
+/tmp/
+/temp/
+/out-tsc/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Compiled TypeScript
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+
+# IDE directories
+.idea/
+.vscode/
+
+# Cache directories
+.npm/
+.yarn/
+.pnp.*
+.cache/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
