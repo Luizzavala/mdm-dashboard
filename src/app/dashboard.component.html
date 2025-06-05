@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>MDM Dashboard</h1>
+  <label>Dispositivo:
+    <select [(ngModel)]="selectedDevice" (change)="onSelectDevice()">
+      <option *ngFor="let d of devices" [ngValue]="d">{{d.name}} ({{d.status}})</option>
+    </select>
+  </label>
+  <div id="map" class="map"></div>
+</div>
