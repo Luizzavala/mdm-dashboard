@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
       }).addTo(this.map);
     } else {
       this.map.setView([this.history[0].lat, this.history[0].lng], 13);
-      this.map.eachLayer(layer => {
+      this.map.eachLayer((layer: L.Layer) => {
         if ((layer as L.Marker).getLatLng) {
           this.map!.removeLayer(layer);
         }
