@@ -15,16 +15,10 @@ export class SidebarComponent {
   @Input() selectedDevice: Device | null = null;
   @Input() selectedDeviceId = '';
   @Output() selectedDeviceIdChange = new EventEmitter<string>();
-  @Input() positionLimit = 5;
 
   @Output() deviceFilter = new EventEmitter<void>();
-  @Output() limitChange = new EventEmitter<number>();
 
   applyDeviceFilter(): void {
     this.deviceFilter.emit();
-  }
-
-  setLimit(limit: number): void {
-    this.limitChange.emit(Number(limit));
   }
 }
