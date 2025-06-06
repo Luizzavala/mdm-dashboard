@@ -1,6 +1,6 @@
 # MdmDashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1. It now follows a simple clean architecture where features live under `src/app/features` and reusable elements under `src/app/shared`. The new `Home` component acts as the application's entry point and provides navigation to other modules such as the dashboard.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1. It follows a simple clean architecture where features live under `src/app/features` and reusable elements under `src/app/shared`. The `Dashboard` component now serves as the application's entry point.
 
 ## Development server
 
