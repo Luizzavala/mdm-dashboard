@@ -67,7 +67,12 @@ export class DashboardComponent implements AfterViewInit {
         color: recent ? 'green' : 'red',
         fillColor: recent ? 'green' : 'red',
         fillOpacity: 1,
-      }).bindPopup(device.name);
+      });
+
+      const tooltipContent = `${device.name} - Última conexión: ${new Date(
+        device.lastSeen
+      ).toLocaleString()}`;
+      marker.bindTooltip(tooltipContent, { direction: 'top', sticky: true });
       this.markers[device.id] = marker;
     });
     this.updateMarkers();
