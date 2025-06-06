@@ -1,16 +1,3 @@
 <div class="dashboard">
-  <aside class="sidebar">
-    <h2>Devices</h2>
-    <label>
-      Dispositivo:
-      <select [(ngModel)]="selectedDeviceId">
-        <option value="">Todos</option>
-        <option *ngFor="let device of devices" [value]="device.id">
-          {{ device.name }}
-        </option>
-      </select>
-    </label>
-    <button (click)="applyDeviceFilter()">Filtrar</button>
-  </aside>
-  <div id="map" class="map"></div>
+  <div class="map" id="map"></div>
 </div>

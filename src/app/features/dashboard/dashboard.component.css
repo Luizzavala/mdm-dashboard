@@ -1,24 +1,15 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .dashboard {
-  display: flex;
-  height: 100vh; /* o 100% si su padre tiene altura explícita */
+  height: 100vh; /* o 100% si el padre tiene altura */
+  width: 100%;
 }
 
 #map {
-  flex-grow: 1;
   height: 100%;
-  min-height: 300px; /* por si se hereda altura errónea */
-}
-
-.sidebar {
-  width: 280px;
-  padding: 1rem;
-  background: #f5f5f5;
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-.sidebar select,
-.sidebar button {
   width: 100%;
-  margin-top: 0.5rem;
+  background-color: #eee; /* solo para debug visual */
 }
