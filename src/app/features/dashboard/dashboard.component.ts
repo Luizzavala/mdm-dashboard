@@ -11,7 +11,7 @@ import { DeviceService } from '../../core/services/device.service';
   standalone: true,
   imports: [CommonModule, FormsModule, SidebarComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   devices: Device[] = [];
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   constructor(private deviceService: DeviceService) {}
 
   ngOnInit(): void {
-    this.deviceService.getDevices().subscribe(devices => {
+    this.deviceService.getDevices().subscribe((devices) => {
       this.devices = devices;
       this.renderMarkers();
     });
@@ -36,7 +36,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   applyDeviceFilter(): void {
     if (this.selectedDeviceId) {
-      const device = this.devices.find(d => d.id === this.selectedDeviceId) ?? null;
+      const device =
+        this.devices.find((d) => d.id === this.selectedDeviceId) ?? null;
       this.selectedDevice = device;
     } else {
       this.selectedDevice = null;
@@ -45,11 +46,25 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   private initMap(): void {
-    this.map = L.map('map').setView([37.7749, -122.4194], 5);
+    this.map = L.map('map', {
+      center: [19.4326, -99.1332], // CDMX por defecto
+      zoom: 6,
+      minZoom: 3,
+      maxZoom: 18,
+      zoomControl: true, // Puedes desactivarlo si haces uno personalizado
+      maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
+      attributionControl: true,
+    });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; OpenStreetMap contributors',
+      tileSize: 256,
+      maxZoom: 18,
     }).addTo(this.map);
+
+    setTimeout(() => {
+      this.map?.invalidateSize();
+    }, 0);
   }
 
   private renderMarkers(): void {
@@ -57,26 +72,30 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.markers.forEach(m => m.remove());
+    this.markers.forEach((m) => m.remove());
     this.markers = [];
 
-    const devicesToShow = this.selectedDevice ? [this.selectedDevice] : this.devices;
+    const devicesToShow = this.selectedDevice
+      ? [this.selectedDevice]
+      : this.devices;
 
-    devicesToShow.forEach(device => {
+    devicesToShow.forEach((device) => {
       const inactive = this.isInactive(device);
       const icon = L.icon({
         iconUrl: inactive ? 'assets/marker-red.png' : 'assets/marker-green.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
-        popupAnchor: [1, -34]
+        popupAnchor: [1, -34],
       });
 
-      const marker = L.marker([device.lat, device.lng], { icon }).addTo(this.map!);
+      const marker = L.marker([device.lat, device.lng], { icon }).addTo(
+        this.map!
+      );
       const status = inactive ? 'Inactivo' : 'Activo';
       marker.bindPopup(
         `<strong>${device.name}</strong><br>` +
-        `Última conexión: ${new Date(device.lastSeen).toLocaleString()}<br>` +
-        `Estado: ${status}`
+          `Última conexión: ${new Date(device.lastSeen).toLocaleString()}<br>` +
+          `Estado: ${status}`
       );
       this.markers.push(marker);
     });
