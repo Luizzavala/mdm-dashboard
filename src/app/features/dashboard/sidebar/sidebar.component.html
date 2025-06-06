@@ -1,9 +1,16 @@
 <div class="sidebar">
-  <label for="device-select">Device</label>
-  <select id="device-select" [(ngModel)]="selectedId" (change)="onSelectionChange()">
-    <option value="all">All devices</option>
-    <option *ngFor="let device of devices" [value]="device.id">
-      {{ device.name }}
-    </option>
-  </select>
+  <div class="mb-3">
+    <label for="device-select" class="form-label">Device</label>
+    <select
+      id="device-select"
+      class="form-select"
+      [(ngModel)]="selectedId"
+      (change)="onSelectionChange()"
+    >
+      <option value="all">All devices</option>
+      <option *ngFor="let device of devices" [value]="device.id">
+        {{ device.name }}
+      </option>
+    </select>
+  </div>
 </div>
