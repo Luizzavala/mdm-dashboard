@@ -12,23 +12,23 @@ export class DeviceService {
     {
       id: '1',
       name: 'Device A',
-      lat: 37.7749,
-      lng: -122.4194,
-      lastSeen: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
+      lat: 24.8055,
+      lng: -107.394,
+      lastSeen: new Date(Date.now() - 5 * 60 * 1000).toISOString(), // hace 5 minutos
     },
     {
       id: '2',
       name: 'Device B',
-      lat: 40.7128,
-      lng: -74.006,
-      lastSeen: new Date(Date.now() - 25 * 60 * 1000).toISOString(),
+      lat: 24.79,
+      lng: -107.4265,
+      lastSeen: new Date(Date.now() - 25 * 60 * 1000).toISOString(), // hace 25 minutos
     },
     {
       id: '3',
       name: 'Device C',
-      lat: 34.0522,
-      lng: -118.2437,
-      lastSeen: new Date().toISOString(),
+      lat: 24.825,
+      lng: -107.362,
+      lastSeen: new Date().toISOString(), // ahora
     },
   ];
 
