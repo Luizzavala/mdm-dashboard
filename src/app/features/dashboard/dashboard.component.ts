@@ -4,7 +4,7 @@ import * as L from 'leaflet';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements AfterViewInit {
   private map?: L.Map;
@@ -18,12 +18,22 @@ export class DashboardComponent implements AfterViewInit {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [39.8282, -98.5795],
-      zoom: 5
+      center: [24.8091, -107.394], // Culiacán, Sinaloa
+      zoom: 13,
+      minZoom: 3,
+      maxZoom: 18,
+      zoomControl: true,
+      maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
+      attributionControl: true,
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; OpenStreetMap contributors',
+      crossOrigin: true,
     }).addTo(this.map);
+
+    requestAnimationFrame(() => {
+      this.map?.invalidateSize();
+    });
   }
 }

@@ -4,12 +4,12 @@
 }
 
 .dashboard {
-  height: 100vh; /* o 100% si el padre tiene altura */
+  height: 100vh;
   width: 100%;
 }
 
 #map {
   height: 100%;
   width: 100%;
-  background-color: #eee; /* solo para debug visual */
+  background-color: #eee;
 }
