@@ -17,6 +17,7 @@ export class DashboardComponent implements AfterViewInit {
   private markers: Record<string, L.Layer> = {};
   devices: Device[] = [];
   selectedId = 'all';
+  sidebarVisible = true;
 
   constructor(private readonly deviceService: DeviceService) {}
 
@@ -34,10 +35,12 @@ export class DashboardComponent implements AfterViewInit {
       zoom: 13,
       minZoom: 3,
       maxZoom: 18,
-      zoomControl: true,
+      zoomControl: false,
       maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
       attributionControl: true,
     });
+
+    L.control.zoom({ position: 'bottomright' }).addTo(this.map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
@@ -81,6 +84,11 @@ export class DashboardComponent implements AfterViewInit {
   onDeviceSelected(id: string): void {
     this.selectedId = id;
     this.updateMarkers();
+  }
+
+  toggleSidebar(): void {
+    this.sidebarVisible = !this.sidebarVisible;
+    setTimeout(() => this.map?.invalidateSize(), 0);
   }
 
   private updateMarkers(): void {
