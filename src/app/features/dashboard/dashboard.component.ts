@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { DeviceService } from '../../core/services/device.service';
 import { Device } from '../../core/models/device';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ToolbarComponent } from '../../shared/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, SidebarComponent],
+  imports: [CommonModule, SidebarComponent, ToolbarComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
