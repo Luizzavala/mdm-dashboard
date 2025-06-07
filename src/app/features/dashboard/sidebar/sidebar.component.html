@@ -1,13 +1,13 @@
 <div class="sidebar">
   <div class="mb-3">
-    <label for="device-select" class="form-label">Device</label>
+    <label for="device-select" class="form-label">Lista de Dispositivos</label>
     <select
       id="device-select"
       class="form-select"
       [(ngModel)]="selectedId"
       (change)="onSelectionChange()"
     >
-      <option value="all">All devices</option>
+      <option value="all">Dispositivos</option>
       <option *ngFor="let device of devices" [value]="device.id">
         {{ device.name }}
       </option>
