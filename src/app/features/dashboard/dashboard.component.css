@@ -13,13 +13,6 @@
   position: relative;
 }
 
-.toggle-sidebar-btn {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  z-index: 1000;
-}
-
 #map {
   height: 100%;
   flex: 1;

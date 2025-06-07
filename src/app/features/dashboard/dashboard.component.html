@@ -4,12 +4,9 @@
     (deviceSelected)="onDeviceSelected($event)"
   ></app-sidebar>
   <div class="map" id="map">
-    <button
-      type="button"
-      class="btn btn-secondary toggle-sidebar-btn"
-      (click)="toggleSidebar()"
-    >
-      {{ sidebarVisible ? 'Ocultar menú' : 'Mostrar menú' }}
-    </button>
+    <app-toolbar
+      [sidebarVisible]="sidebarVisible"
+      (toggle)="toggleSidebar()"
+    ></app-toolbar>
   </div>
 </div>
