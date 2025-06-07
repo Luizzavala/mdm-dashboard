@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from './features/dashboard/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [CommonModule, RouterOutlet, SidebarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'mdm-dashboard';
+  showSidebar = true;
+
+  toggleSidebar(): void {
+    this.showSidebar = !this.showSidebar;
+  }
 }

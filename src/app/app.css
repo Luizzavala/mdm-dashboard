@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background: #1976d2;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  height: calc(100% - 56px);
+  margin-top: 56px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.menu-btn {
+  margin-right: 1rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}

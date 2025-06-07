@@ -1,11 +1,3 @@
 <div class="dashboard">
-  <app-toolbar
-    [sidebarVisible]="sidebarVisible"
-    (toggle)="toggleSidebar()"
-  ></app-toolbar>
-  <app-sidebar
-    *ngIf="sidebarVisible"
-    (deviceSelected)="onDeviceSelected($event)"
-  ></app-sidebar>
   <div class="map" id="map"></div>
 </div>

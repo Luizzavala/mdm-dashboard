@@ -3,13 +3,11 @@ import * as L from 'leaflet';
 import { CommonModule } from '@angular/common';
 import { DeviceService } from '../../core/services/device.service';
 import { Device } from '../../core/models/device';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { ToolbarComponent } from '../../shared/toolbar/toolbar.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, SidebarComponent, ToolbarComponent],
+  imports: [CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
@@ -18,7 +16,6 @@ export class DashboardComponent implements AfterViewInit {
   private markers: Record<string, L.Layer> = {};
   devices: Device[] = [];
   selectedId = 'all';
-  sidebarVisible = true;
 
   constructor(private readonly deviceService: DeviceService) {}
 
@@ -87,10 +84,6 @@ export class DashboardComponent implements AfterViewInit {
     this.updateMarkers();
   }
 
-  toggleSidebar(): void {
-    this.sidebarVisible = !this.sidebarVisible;
-    setTimeout(() => this.map?.invalidateSize(), 0);
-  }
 
   private updateMarkers(): void {
     if (!this.map) return;
